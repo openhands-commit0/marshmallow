@@ -15,9 +15,12 @@ from enum import Enum as EnumType
 from marshmallow.base import FieldABC, SchemaABC
 from marshmallow.exceptions import FieldInstanceResolutionError, StringNotCollectionError, ValidationError
 from marshmallow.validate import And, Length
-from marshmallow import class_registry, types, validate
+from marshmallow import class_registry, types, validate, utils
 from marshmallow.utils import missing as missing_
-from marshmallow.utils import is_aware, is_collection, resolve_field_instance
+
+is_aware = utils.is_aware
+is_collection = utils.is_collection
+resolve_field_instance = utils.resolve_field_instance
 from marshmallow.warnings import RemovedInMarshmallow4Warning
 __all__ = ['Field', 'Raw', 'Nested', 'Mapping', 'Dict', 'List', 'Tuple', 'String', 'UUID', 'Number', 'Integer', 'Decimal', 'Boolean', 'Float', 'DateTime', 'NaiveDateTime', 'AwareDateTime', 'Time', 'Date', 'TimeDelta', 'Url', 'URL', 'Email', 'IP', 'IPv4', 'IPv6', 'IPInterface', 'IPv4Interface', 'IPv6Interface', 'Enum', 'Method', 'Function', 'Str', 'Bool', 'Int', 'Constant', 'Pluck']
 _T = typing.TypeVar('_T')
