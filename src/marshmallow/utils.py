@@ -175,3 +175,10 @@ def timedelta_to_microseconds(value: dt.timedelta) -> int:
     https://github.com/python/cpython/blob/bb3e0c240bc60fe08d332ff5955d54197f79751c/Lib/datetime.py#L665-L667  # noqa: B950
     """
     pass
+
+def is_aware(dt_obj: dt.datetime | dt.time) -> bool:
+    """Return True if the datetime or time object has tzinfo.
+
+    :param dt_obj: The datetime or time object to check.
+    """
+    return dt_obj.tzinfo is not None and dt_obj.tzinfo.utcoffset(None) is not None
