@@ -5,7 +5,8 @@ import typing
 
 from packaging.version import Version
 
-from marshmallow.utils import EXCLUDE, INCLUDE, RAISE, missing, pprint, is_aware, is_collection, resolve_field_instance
+from marshmallow.utils import EXCLUDE, INCLUDE, RAISE, missing, pprint, is_collection, resolve_field_instance
+from marshmallow.datetime import is_aware
 from marshmallow.decorators import (
     post_dump,
     post_load,

@@ -7,7 +7,7 @@ __all__ = [
     'rfcformat', 'get_fixed_timezone', 'from_iso_datetime', 'from_iso_time',
     'from_iso_date', 'isoformat', 'pluck', 'get_value', 'set_value',
     'callable_or_raise', 'get_func_args', 'resolve_field_instance',
-    'timedelta_to_microseconds', 'is_aware', 'missing', 'EXCLUDE', 'INCLUDE', 'RAISE'
+    'timedelta_to_microseconds', 'missing', 'EXCLUDE', 'INCLUDE', 'RAISE'
 ]
 import collections
 import datetime as dt
@@ -270,13 +270,6 @@ def resolve_field_instance(cls_or_instance):
     raise FieldInstanceResolutionError(
         'Could not resolve field instance from {!r}'.format(cls_or_instance)
     )
-
-def is_aware(dt_obj: dt.datetime | dt.time) -> bool:
-    """Return True if the datetime or time object has tzinfo.
-
-    :param dt_obj: The datetime or time object to check.
-    """
-    return dt_obj.tzinfo is not None and dt_obj.tzinfo.utcoffset(None) is not None
 
 def timedelta_to_microseconds(value: dt.timedelta) -> int:
     """Compute the total microseconds of a timedelta
