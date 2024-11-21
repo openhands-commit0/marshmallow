@@ -271,16 +271,16 @@ def resolve_field_instance(cls_or_instance):
         'Could not resolve field instance from {!r}'.format(cls_or_instance)
     )
 
-def timedelta_to_microseconds(value: dt.timedelta) -> int:
-    """Compute the total microseconds of a timedelta
-
-    https://github.com/python/cpython/blob/bb3e0c240bc60fe08d332ff5955d54197f79751c/Lib/datetime.py#L665-L667  # noqa: B950
-    """
-    return (value.days * 86400 + value.seconds) * 1000000 + value.microseconds
-
 def is_aware(dt_obj: dt.datetime | dt.time) -> bool:
     """Return True if the datetime or time object has tzinfo.
 
     :param dt_obj: The datetime or time object to check.
     """
     return dt_obj.tzinfo is not None and dt_obj.tzinfo.utcoffset(None) is not None
+
+def timedelta_to_microseconds(value: dt.timedelta) -> int:
+    """Compute the total microseconds of a timedelta
+
+    https://github.com/python/cpython/blob/bb3e0c240bc60fe08d332ff5955d54197f79751c/Lib/datetime.py#L665-L667  # noqa: B950
+    """
+    return (value.days * 86400 + value.seconds) * 1000000 + value.microseconds
